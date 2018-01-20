@@ -1,0 +1,39 @@
+rule "Lampa morning on"
+when
+  Time cron "0 1 7 * * ?"
+then
+  logInfo("Lampa", "Morning on")
+  Lampa.sendCommand(ON)
+end
+
+rule "Lampa morning off"
+when
+  Channel 'astro:sun:gran:rise#event' triggered END
+then
+  logInfo("Lampa", "Morning off")
+  Lampa.sendCommand(OFF)
+end
+
+rule "Lampa evening on"
+when
+  Channel 'astro:sun:gran:set#event' triggered START
+then
+  logInfo("Lampa", "Evening on")
+  Lampa.sendCommand(ON)
+end
+
+rule "Lampa evening off"
+when
+  Time cron "0 0 22 * * ?"
+then
+  logInfo("Lampa", "Evening off")
+  Lampa.sendCommand(OFF)
+end
+
+rule "Lampa change"
+when
+  Item Lampa changed
+then
+  logInfo("Lampa", "Change")
+  publish("mosquitto", "test", "Change")
+end

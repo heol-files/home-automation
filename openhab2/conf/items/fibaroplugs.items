@@ -1,0 +1,20 @@
+Group grGF ["Bottenplan"]
+Group grFF ["Övervåning"]
+Group grPower ["Power"]
+//
+Switch Akvarium "Switch [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node3:switch_binary"}
+Number AkvariumPower "Power [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node3:sensor_power"}
+Number AkvariumWatts "Watts [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_watts"}
+Number AkvariumKWh "KWh [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_kwh"}
+Switch AkvariumReset "Reset [%s]" <switch> (grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_reset"}
+Switch AkvariumAlarm "Alarm [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node3:alarm_power"}
+//
+Switch Lampa "Switch [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node2:switch_binary"}
+Number LampaPower "Power [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node2:sensor_power"}
+Number LampaWatts "Watts [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node2:meter_watts"}
+Number LampaKWh "KWh [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node2:meter_kwh"}
+Switch LampaReset "Reset [%s]" <switch> (grGF, grPower) {channel="zwave:device:aeotec-1:node2:meter_reset"}
+Switch LampaAlarm "Alarm [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node2:alarm_power"}
+//
+//
+

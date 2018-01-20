@@ -1,0 +1,5 @@
+astro:sun:gran  [ geolocation="59.3276673, 18.2645983, 54", interval=60 ] {
+Channels:
+        Type rangeEvent : rise#event [ earliest="08:30" ]
+	Type rangeEvent : set#event [ latest="22:00" ]
+}

@@ -1,0 +1,18 @@
+sitemap hemma label="Hemma" {
+
+Frame label="Lampa" {
+Switch item=Lampa
+Text item=LampaPower
+Text item=LampaWatts
+Text item=LampaKWh
+}
+Frame label="Akvarium" {
+Switch item=Akvarium
+Text item=AkvariumPower
+Text item=AkvariumWatts
+Text item=AkvariumKWh
+}
+Frame label="Test" {
+Switch item=mqttSwitch
+}
+}

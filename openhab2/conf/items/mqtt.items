@@ -1,0 +1,3 @@
+Switch mqttSwitch {mqtt=">[mosquitto:myhouse/office/light:command:ON:1],>[mosquitto:myhouse/office/light:command:OFF:0],>[mosquitto:myhouse/office/light:command:*:Switch ${itemName} was turned ${command}]"}
+String StringCommand "StringCommand [%s]" {mqtt="<[mosquitto:openhab/command:state:default]"}
+

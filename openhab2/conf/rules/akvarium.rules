@@ -1,0 +1,16 @@
+rule "Akvarium on"
+when
+  Time cron "0 0 7 * * ?"
+then
+  logInfo("Akvarium", "Akvarium on")
+  Akvarium.sendCommand(ON)
+end
+
+rule "Akvarium off"
+when
+  Time cron "0 0 21 * * ?"
+then
+  logInfo("Akvarium", "Akvarium off")
+  Akvarium.sendCommand(OFF)
+end
+
