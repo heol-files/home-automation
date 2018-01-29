@@ -12,7 +12,7 @@ get_script_dir () {
 }
 
 BASE=$(get_script_dir)
-mkdir -p ${BASE}/conf
+
 mkdir -p ${BASE}/userdata
 mkdir -p ${BASE}/addons
 mkdir -p ${BASE}/.java
@@ -20,9 +20,9 @@ mkdir -p ${BASE}/.java
 docker run \
         -dit \
 	--name openhab \
-	--tty \
 	--device=/dev/ttyUSB-ZStick-5G \
 	--link mymqtt:mqttbroker \
+	--link mysql_srv:mysql_srv \
 	-v /etc/localtime:/etc/localtime:ro \
 	-v /etc/timezone:/etc/timezone:ro \
 	-v ${BASE}/conf:/openhab/conf \

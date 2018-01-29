@@ -1,4 +1,4 @@
-Bridge zwave:serial_zstick:aeotec-1 "aeotec-1 controller" @ "Förrådet" [port="/dev/ttyUSB-ZStick-5G", controller_master="true", controller_suc="true", controller_softreset="false", heal_enable="true"]
+Bridge zwave:serial_zstick:aeotec-1 "aeotec-1 controller" @ "Förrådet" [port="/dev/ttyUSB-ZStick-5G", controller_master="true", security_networkkey="A9 5F B5 C0 70 03 A3 C2 98 E4 22 37 C0 2B FC E5", controller_softreset="false", heal_enable="true", inclusion_mode="1"]
 //{
 //Thing device node2 "Fibaro plug:ZWave Node 2" (zwave:serial_zstick:aeotec-1) [ zwave_nodeid="2" ]
 //Thing device node3 "Fibaro plug:ZWave Node 3" (zwave:serial_zstick:aeotec-1) [ zwave_nodeid="3" ]

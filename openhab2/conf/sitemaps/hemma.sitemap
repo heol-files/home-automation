@@ -6,13 +6,34 @@ Text item=LampaPower
 Text item=LampaWatts
 Text item=LampaKWh
 }
+
 Frame label="Akvarium" {
 Switch item=Akvarium
 Text item=AkvariumPower
 Text item=AkvariumWatts
 Text item=AkvariumKWh
 }
+
+Frame label="Kyl" {
+Switch item=Kyl
+Text item=Temp1
+Text item=Temp2
+Switch item=Kyl_Intervall label="Kyl" icon="clock" mappings=[0="Dag", 1="Vecka"]
+Chart item=grKylTemp service="mysql" period=D refresh=60 visibility=[Kyl_Intervall==0, Kyl_Intervall=="NULL"]
+Chart item=grKylTemp service="mysql" period=W refresh=60 visibility=[Kyl_Intervall==1]
+}
+
+Frame label="Frys" {
+Switch item=Frys
+Text item=Temp3
+Text item=Temp4
+Switch item=Frys_Intervall label="Frys" icon="clock" mappings=[0="Dag", 1="Vecka"]
+Chart item=grFrysTemp service="mysql" period=D refresh=60 visibility=[Frys_Intervall==0, Frys_Intervall=="NULL"]
+Chart item=grFrysTemp service="mysql" period=W refresh=60 visibility=[Frys_Intervall==1]
+}
+
 Frame label="Test" {
 Switch item=mqttSwitch
 }
 }
+

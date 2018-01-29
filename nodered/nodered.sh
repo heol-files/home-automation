@@ -20,6 +20,7 @@ docker run --name nodered \
 	-v ${BASE}/data:/data \
 	--restart unless-stopped \
 	--link mymqtt:mqttbroker \
+	--link mysql_srv:mysql_srv \
 	-u $(id -u):$(id -g) \
 	nodered/node-red-docker
 
