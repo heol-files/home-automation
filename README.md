@@ -1,13 +1,15 @@
 # home-automation
 
-My setup fo home automation
+My setup for home automation
 
-Added code o minimize setup time, some things are nedded to be done before starting openhab.
+Added code to minimize setup time, some things are nedded to be done before starting openhab.
 
 1. Install docker CE and add user to docker group
 2. Add user running the docker to dial group if needed (usb zwave stick for example)
-3. Add rule for zwave stick to get a specifig /dev/<ttyUSBname> and add it in openhab.sh script Like:
-cat /etc/udev/rules.d/99-usb-serial.rules 
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0658", ATTRS{idProduct}=="0200", SYMLINK+="ttyUSB-ZStick-5G" 
+3. Add rule.d file for zwave stick to get a specific /dev/<ttyUSBname> and use symlink in openhab.sh script:<br>
+cat /etc/udev/rules.d/99-usb-serial.rules<br>
+<code>SUBSYSTEM=="tty", ATTRS{idVendor}=="0658", ATTRS{idProduct}=="0200", SYMLINK+="ttyUSB-ZStick-5G"</code>
+4. If running mysql, point the volume used to store data to a __completely__ empty dir.
+
 
 That's all for now
