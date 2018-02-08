@@ -1,6 +1,7 @@
 Bridge zwave:serial_zstick:aeotec-1 "aeotec-1 controller" @ "Förrådet" [port="/dev/ttyUSB-ZStick-5G", controller_master="true", security_networkkey="A9 5F B5 C0 70 03 A3 C2 98 E4 22 37 C0 2B FC E5", controller_softreset="false", heal_enable="true", inclusion_mode="1"]
-//{
-//Thing device node2 "Fibaro plug:ZWave Node 2" (zwave:serial_zstick:aeotec-1) [ zwave_nodeid="2" ]
-//Thing device node3 "Fibaro plug:ZWave Node 3" (zwave:serial_zstick:aeotec-1) [ zwave_nodeid="3" ]
-//}
+{
+//  Thing device node2 "Fibaro plug:ZWave Node 2" (zwave:serial_zstick:aeotec-1) [ zwave_nodeid="2", zwave_manufacturer="271", zwave_deviceid="4097", zwave_devicetype="1538", zwave_version="2.1" ]
+//  Thing device node3 "Fibaro plug:ZWave Node 3" (zwave:serial_zstick:aeotec-1) [ zwave_nodeid="3", zwave_manufacturer="271", zwave_deviceid="4097", zwave_devicetype="1538", zwave_version="3.2" ]
+//  Thing device node5 "Fibaro FGBS001:ZWave Node 5" (zwave:serial_zstick:aeotec-1) [ zwave_nodeid="5", zwave_manufacturer="010f", zwave_deviceid="1002", zwave_devicetype="501", zwave_version="2.1", zwave_frequent="false", zwave_listening="true", zwave_routing="true", zwave_beaming="true", zwave_class_basic="ROUTING_SLAVE", zwave_class_generic="BINARY_SENSOR", zwave_class_specific="ROUTING_SENSOR_BINARY"]
+}
 
