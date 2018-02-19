@@ -4,27 +4,27 @@ Group grPower ["Power"]
 Group grKylTemp ["Kyl temperatur"]
 Group grFrysTemp ["Frys temperatur"]
 //
-Switch Akvarium "Switch [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node3:switch_binary"}
-Number AkvariumPower "Power [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node3:sensor_power"}
-Number AkvariumWatts "Watts [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_watts"}
-Number AkvariumKWh "KWh [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_kwh"}
-Switch AkvariumReset "Reset [%s]" <switch> (grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_reset"}
-Switch AkvariumAlarm "Alarm [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node3:alarm_power"}
+Switch Akvarium "Switch [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node2:switch_binary"}
+Number AkvariumPower "Power [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node2:sensor_power"}
+Number AkvariumWatts "Watts [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node2:meter_watts"}
+Number AkvariumKWh "KWh [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node2:meter_kwh"}
+Switch AkvariumReset "Reset [%s]" <switch> (grGF, grPower) {channel="zwave:device:aeotec-1:node2:meter_reset"}
+Switch AkvariumAlarm "Alarm [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node2:alarm_power"}
 //
-Switch Lampa "Switch [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node2:switch_binary"}
-Number LampaPower "Power [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node2:sensor_power"}
-Number LampaWatts "Watts [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node2:meter_watts"}
-Number LampaKWh "KWh [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node2:meter_kwh"}
-Switch LampaReset "Reset [%s]" <switch> (grGF, grPower) {channel="zwave:device:aeotec-1:node2:meter_reset"}
-Switch LampaAlarm "Alarm [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node2:alarm_power"}
+Switch Lampa "Switch [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node3:switch_binary"}
+Number LampaPower "Power [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node3:sensor_power"}
+Number LampaWatts "Watts [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_watts"}
+Number LampaKWh "KWh [%.1f]" (grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_kwh"}
+Switch LampaReset "Reset [%s]" <switch> (grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_reset"}
+Switch LampaAlarm "Alarm [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node3:alarm_power"}
 //
 //
-Switch Kyl "Kyl [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node5:sensor_binary1"}
-Switch Frys "Frys [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node5:sensor_binary2"}
-Number Temp1 "Temperatur 1 [%.1f]" (grGF, grKylTemp) {channel="zwave:device:aeotec-1:node5:sensor_temperature3"}
-Number Temp2 "Temperatur 2 [%.1f]" (grGF, grKylTemp) {channel="zwave:device:aeotec-1:node5:sensor_temperature4"}
-Number Temp3 "Temperatur 3 [%.1f]" (grGF, grFrysTemp) {channel="zwave:device:aeotec-1:node5:sensor_temperature5"}
-Number Temp4 "Temperatur 4 [%.1f]" (grGF, grFrysTemp) {channel="zwave:device:aeotec-1:node5:sensor_temperature6"}
+Switch Kyl "Kyl [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node4:sensor_binary1"}
+Switch Frys "Frys [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node4:sensor_binary2"}
+Number Temp1 "Temperatur 1 [%.1f]" (grGF, grKylTemp) {channel="zwave:device:aeotec-1:node4:sensor_temperature3"}
+Number Temp2 "Temperatur 2 [%.1f]" (grGF, grKylTemp) {channel="zwave:device:aeotec-1:node4:sensor_temperature4"}
+Number Temp3 "Temperatur 3 [%.1f]" (grGF, grFrysTemp) {channel="zwave:device:aeotec-1:node4:sensor_temperature5"}
+Number Temp4 "Temperatur 4 [%.1f]" (grGF, grFrysTemp) {channel="zwave:device:aeotec-1:node4:sensor_temperature6"}
 
 Number Frys_Intervall "Frys Intervall"
 Number Kyl_Intervall  "Kyl Intervall"
