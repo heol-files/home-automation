@@ -22,7 +22,6 @@ mkdir -p ${BASE}/log
 docker run \
         -dit \
 	--name grafana \
-	--link openhab:openhab \
 	--link mymqtt:mqttbroker \
 	--link mysql_srv:mysql_srv \
 	--mount type=bind,source=${BASE}/conf,destination=/etc/grafana \

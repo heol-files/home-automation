@@ -20,20 +20,19 @@ mkdir -p ${BASE}/.java
 docker run \
         -dit \
 	--name openhab \
-	--device=/dev/ttyUSB-ZStick-5G \
-	--link mymqtt:mqttbroker \
-	--link mysql_srv:mysql_srv \
+	--net=host \
+	--device=/dev/ttyUSBZwave:rwx \
 	-v /etc/localtime:/etc/localtime:ro \
 	-v /etc/timezone:/etc/timezone:ro \
 	-v ${BASE}/conf:/openhab/conf \
 	-v ${BASE}/userdata:/openhab/userdata \
 	-v ${BASE}/addons:/openhab/addons \
 	-v ${BASE}/.java:/openhab/.java \
-	-p 9070:8080 \
-	-p 9071:8443 \
 	-e USER_ID=$(id -u) \
 	-e GROUP_ID=$(id -g) \
-	-e EXTRA_JAVA_OPTS="-Dgnu.io.rxtx.SerialPorts=/dev/ttyUSB-ZStick-5G" \
+	-e OPENHAB_HTTP_PORT=9070 \
+	-e OPENHAB_HTTPS_PORT=9071 \
+	-e EXTRA_JAVA_OPTS="-Dgnu.io.rxtx.SerialPorts=/dev/ttyUSBZwave" \
 	--restart=always \
 	openhab/openhab:2.2.0-amd64-debian
 
