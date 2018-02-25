@@ -21,7 +21,7 @@ docker run \
         -dit \
 	--name openhab \
 	--net=host \
-	--device=/dev/ttyUSBZwave:rwx \
+	--device=/dev/ttyUSBZwave \
 	-v /etc/localtime:/etc/localtime:ro \
 	-v /etc/timezone:/etc/timezone:ro \
 	-v ${BASE}/conf:/openhab/conf \
@@ -32,6 +32,8 @@ docker run \
 	-e GROUP_ID=$(id -g) \
 	-e OPENHAB_HTTP_PORT=9070 \
 	-e OPENHAB_HTTPS_PORT=9071 \
+	-p 8101:8101 \
+	-p 5007:5007 \
 	-e EXTRA_JAVA_OPTS="-Dgnu.io.rxtx.SerialPorts=/dev/ttyUSBZwave" \
 	--restart=always \
 	openhab/openhab:2.2.0-amd64-debian

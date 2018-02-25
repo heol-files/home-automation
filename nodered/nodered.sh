@@ -18,6 +18,8 @@ docker run --name nodered \
 	-dit \
 	-p 1880:1880 \
 	-v ${BASE}/data:/data \
+	-v /etc/localtime:/etc/localtime:ro \
+	-v /etc/timezone:/etc/timezone:ro \
 	--restart unless-stopped \
 	--link mymqtt:mqttbroker \
 	--link mysql_srv:mysql_srv \
