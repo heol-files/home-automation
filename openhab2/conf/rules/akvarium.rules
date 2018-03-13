@@ -1,6 +1,6 @@
 rule "Akvarium on"
 when
-  Time cron "0 0 7 * * ?"
+  Time cron "0 0 9 * * ?"
 then
   logInfo("Akvarium", "Akvarium on")
   Akvarium.sendCommand(ON)

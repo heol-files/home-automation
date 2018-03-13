@@ -27,4 +27,6 @@ Items {
        Temp2 : strategy = every5Minutes
        Temp3 : strategy = every5Minutes
        Temp4 : strategy = every5Minutes
+       Kyl : strategy = everyChange
+       Frys : strategy = everyChange
 }
