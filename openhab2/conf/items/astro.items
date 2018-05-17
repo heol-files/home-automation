@@ -1,0 +1,6 @@
+Number Sun_Elevation  "Sun Elevation"   { channel="astro:sun:home:position#elevation" }
+DateTime Sunrise_Start  "Sunrise Start [%1$tH:%1$tM]"   { channel="astro:sun:home:rise#start" }
+DateTime Sunrise_End  "Sunrise End [%1$tH:%1$tM]"   { channel="astro:sun:home:rise#end" }
+DateTime Sunset_Start  "Sunset Start [%1$tH:%1$tM]"   { channel="astro:sun:home:set#start" }
+DateTime Sunset_End  "Sunset End [%1$tH:%1$tM]"   { channel="astro:sun:home:set#end" }
+

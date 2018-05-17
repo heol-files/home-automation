@@ -2,8 +2,13 @@ rule "Lampa morning on"
 when
   Time cron "0 1 7 * * ?"
 then
-  logInfo("Lampa", "Morning on")
-  Lampa.sendCommand(ON)
+  val long sunrise_end = (Sunrise_End.state as DateTimeType).getZonedDateTime.toInstant.toEpochMilli
+  if(now.isBefore(sunrise_end)) {
+    logInfo("Lampa", "Morning on")
+    Lampa.sendCommand(ON)
+  } else {
+  logInfo("Lampa", "Sun already up!")
+  }
 end
 
 rule "Lampa morning off"
@@ -24,7 +29,7 @@ end
 
 rule "Lampa evening off"
 when
-  Time cron "0 1 22 * * ?"
+  Time cron "0 0 22 * * ?"
 then
   logInfo("Lampa", "Evening off")
   Lampa.sendCommand(OFF)

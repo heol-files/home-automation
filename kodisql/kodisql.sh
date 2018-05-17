@@ -17,14 +17,15 @@ cd ${BASE}
 #First time with no database add:
 # 	-e MYSQL_ROOT_PASSWORD=<root passwd> \
 
-docker run --name mysql_srv \
+docker run --name kodisql_srv \
 	-dit \
-	-p 3306:3306 \
+	-p 13306:3306 \
 	-v /etc/localtime:/etc/localtime:ro \
 	-v /etc/timezone:/etc/timezone:ro \
 	-v ${BASE}/conf:/etc/mysql/conf.d \
-	-v /data/databases/mysql_dir:/var/lib/mysql \
+	-v /data/databases/kodisql_dir:/var/lib/mysql \
 	--restart unless-stopped \
+ 	-e MYSQL_ROOT_PASSWORD=HeRoLo \
 	-u $(id -u):$(id -g) \
-	mysql
+	mysql:5.7
 
