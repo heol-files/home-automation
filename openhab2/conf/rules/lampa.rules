@@ -34,11 +34,3 @@ then
   logInfo("Lampa", "Evening off")
   Lampa.sendCommand(OFF)
 end
-
-rule "Lampa change"
-when
-  Item Lampa changed
-then
-  logInfo("Lampa", "Change")
-  publish("mosquitto", "test", "Change")
-end

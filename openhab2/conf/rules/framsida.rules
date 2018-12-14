@@ -1,0 +1,36 @@
+rule "Julbelysning morning on"
+when
+  Time cron "0 0 7 * * ?"
+then
+  val long sunrise_end = (Sunrise_End.state as DateTimeType).getZonedDateTime.toInstant.toEpochMilli
+  if(now.isBefore(sunrise_end)) {
+    logInfo("Julbelysning", "Morning on")
+    Julbelysning.sendCommand(ON)
+  } else {
+  logInfo("Julbelysning", "Sun already up!")
+  }
+end
+
+rule "Julbelysning morning off"
+when
+  Channel 'astro:sun:lampa:rise#event' triggered END
+then
+  logInfo("Julbelysning", "Morning off")
+  Julbelysning.sendCommand(OFF)
+end
+
+rule "Julbelysning evening on"
+when
+  Channel 'astro:sun:lampa:set#event' triggered START
+then
+  logInfo("Julbelysning", "Evening on")
+  Julbelysning.sendCommand(ON)
+end
+
+rule "Julbelysning evening off"
+when
+  Time cron "0 03 23 * * ?"
+then
+  logInfo("Julbelysning", "Evening off")
+  Julbelysning.sendCommand(OFF)
+end

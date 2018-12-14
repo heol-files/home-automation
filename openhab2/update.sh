@@ -17,5 +17,5 @@ docker stop openhab
 docker rm openhab
 rm -rf ${BASE}/userdata/cache
 rm -rf ${BASE}/userdata/tmp
-docker pull openhab/openhab:2.2.0-amd64-debian
+docker pull openhab/openhab:2.3.0-amd64-debian
 

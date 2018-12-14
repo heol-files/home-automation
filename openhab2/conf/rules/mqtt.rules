@@ -1,7 +1,0 @@
-rule "Mqtt command"
-when
-    Item StringCommand received update
-then
-    logInfo("StringCommand", "Text = " + StringCommand.state.toString)
-end
-

@@ -1,0 +1,36 @@
+var Timer ON_Timer = null
+var Timer OFF_Timer = null
+val java.util.Random rand = new java.util.Random
+
+rule "Guestroom evening on"
+when
+  Time cron "0 30 16 * * ?"
+then
+  if(ON_Timer === null) {
+    val timeout = rand.nextInt(60)
+    logInfo("Guestroom", "Evening on in " + timeout + " minutes")
+    ON_Timer = createTimer(now.plusMinutes(timeout))
+    [|
+      logInfo("Guestroom", "Evening on")
+      Guestroom.sendCommand(ON)
+      ON_Timer = null
+    ]
+  }
+end
+
+rule "Guestroom evening off"
+when
+  Time cron "0 00 20 * * ?"
+then
+  logInfo("Guestroom", "Evening off")
+  if(OFF_Timer === null) {
+    val timeout = rand.nextInt(60)
+    logInfo("Guestroom", "Evening off in " + timeout + " minutes")
+    OFF_Timer = createTimer(now.plusMinutes(timeout))
+    [|
+      logInfo("Guestroom", "Evening off")
+      Guestroom.sendCommand(OFF)
+      OFF_Timer = null
+    ]
+  }
+end

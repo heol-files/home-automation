@@ -1,0 +1,37 @@
+//rule "Baksida morning on"
+//when
+//  Time cron "0 48 6 * * ?"
+//then
+//  val long sunrise_end = (Sunrise_End.state as DateTimeType).getZonedDateTime.toInstant.toEpochMilli
+//  if(now.isBefore(sunrise_end)) {
+//    logInfo("Baksida", "Morning on")
+//    Baksida.sendCommand(ON)
+//  } else {
+//  logInfo("Baksida", "Sun already up!")
+//  }
+//end
+
+//rule "Baksida morning off"
+//when
+//  Channel 'astro:sun:lampa:rise#event' triggered END
+//then
+//  logInfo("Baksida", "Morning off")
+//  Baksida.sendCommand(OFF)
+//end
+
+rule "Baksida evening on"
+when
+  Channel 'astro:sun:lampa:set#event' triggered START
+then
+  logInfo("Baksida", "Evening on")
+  Baksida.sendCommand(ON)
+end
+
+rule "Baksida evening off"
+when
+  Time cron "0 37 22 * * ?"
+then
+  logInfo("Baksida", "Evening off")
+  Baksida.sendCommand(OFF)
+end
+
