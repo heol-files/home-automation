@@ -1,21 +1,21 @@
 sitemap hemma label="Hemma" {
 
 Frame label="Lampa" {
-Switch item=Lampa
+Switch item=Lampa icon="lightbulb"
 Text item=LampaPower
 Text item=LampaWatts
 Text item=LampaKWh
 }
 
 Frame label="Akvarium" {
-Switch item=Akvarium
+Switch item=Akvarium icon="lightbulb"
 Text item=AkvariumPower
 Text item=AkvariumWatts
 Text item=AkvariumKWh
 }
 
 Frame label="Gran" {
-Switch item=Gran
+Switch item=Gran icon="lightbulb"
 Text item=GranScene
 Text item=GranWatts
 Text item=GranKWh
@@ -46,6 +46,20 @@ Switch item=Julbelysning
 Switch item=Baksida
 Switch item=Guestroom
 Switch item=Sovrum
+}
+
+Frame label="Element" {
+//Slider item=ElementDim label="Element"
+//Switch item=ElementMode label="Thermostat Mode" mappings=[0="Off",1="Heat",11="Eco",15="Full", 31="Dim"]
+//Text item=ElementTemp
+//Text item=ElementBatt
+}
+
+Frame label="Everspring" {
+Slider item=Everspring1Dim icon="lightbulb"
+Switch item=Everspring1 icon="lightbulb"
+Slider item=Everspring2Dim icon="lightbulb"
+Switch item=Everspring2 icon="lightbulb"
 }
 }
 

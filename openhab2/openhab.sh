@@ -17,6 +17,9 @@ mkdir -p ${BASE}/userdata
 mkdir -p ${BASE}/addons
 mkdir -p ${BASE}/.java
 
+docker stop openhab
+docker rm openhab
+
 docker run \
         -dit \
 	--name openhab \
@@ -34,5 +37,5 @@ docker run \
 	-e OPENHAB_HTTPS_PORT=9071 \
 	-e EXTRA_JAVA_OPTS="-Dgnu.io.rxtx.SerialPorts=/dev/ttyUSBZwave" \
 	--restart=always \
-	openhab/openhab:2.3.0-amd64-debian
+	openhab/openhab:milestone-debian
 
