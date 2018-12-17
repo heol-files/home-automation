@@ -48,11 +48,12 @@ Switch item=Guestroom
 Switch item=Sovrum
 }
 
-Frame label="Element" {
-//Slider item=ElementDim label="Element"
-//Switch item=ElementMode label="Thermostat Mode" mappings=[0="Off",1="Heat",11="Eco",15="Full", 31="Dim"]
-//Text item=ElementTemp
-//Text item=ElementBatt
+Frame label="Element"  icon="radiator" {
+//Slider item=ElementDim label="Element" icon="radiator"
+//Switch item=ElementMode label="Thermostat Mode" mappings=[0="Off",1="Heat",11="Eco",15="Full", 31="Dim"] icon="radiator"
+//Text item=ElementTemp icon="radiator"
+Text item=ElementBatt icon="radiator"
+Switch item=ElementDummy label="Element dummy" icon="radiator"
 }
 
 Frame label="Everspring" {

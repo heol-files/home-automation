@@ -1,0 +1,48 @@
+//var Timer OFF_Timer = null
+var Timer ON_Timer = null
+
+rule "Element On"
+when
+  Time cron "05 30 07 * * ? *" or
+  Item ElementDummy changed from OFF to ON
+then
+  val mode = Element_ThermostatMode.state as Number
+  logInfo("Element", "On " + mode)
+  if(mode != 1) {
+    if(ON_Timer !== null) {
+      ON_Timer.cancel()
+    }
+//    if(OFF_Timer !== null) {
+//      OFF_Timer.cancel()
+//    }
+    Element_ThermostatMode.sendCommand(15)
+    ON_Timer = createTimer(now.plusSeconds(5))
+    [|
+      Element_ThermostatMode.sendCommand(1)
+    ]
+  }
+end
+
+rule "Element Off"
+when
+  Time cron "05 05 22 * * ? *" or
+  Item ElementDummy changed from ON to OFF
+then
+  val mode = Element_ThermostatMode.state as Number
+  logInfo("Element", "Off " + mode)
+  if(mode != 0) {
+    if(ON_Timer !== null) {
+      ON_Timer.cancel()
+    }
+//    if(OFF_Timer !== null) {
+//      OFF_Timer.cancel()
+//    }
+    Element_ThermostatMode.sendCommand(0)
+//    OFF_Timer = createTimer(now.plusSeconds(5))
+//    [|
+//      Element_ThermostatMode.sendCommand(0)
+//    ]
+  }
+end
+
+
