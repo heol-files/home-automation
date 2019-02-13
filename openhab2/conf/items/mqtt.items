@@ -2,11 +2,18 @@
 
 //String StringCommand "StringCommand [%s]" {mqtt="<[mosquitto:openhab/command:state:default]"}
 
-Switch Julbelysning "Julbelysning [%s]" <switch> (grGF) [ "Lighting" ] { mqtt=">[ mosquitto:cmnd/julbelysning/Power1:command:ON:ON ],>[ mosquitto:cmnd/julbelysning/Power1:command:OFF:OFF ],<[ mosquitto:stat/julbelysning/POWER:state:default ]" }
+//Switch Julbelysning "Julbelysning [%s]" <switch> (grGF) [ "Lighting" ] { mqtt=">[ mosquitto:cmnd/julbelysning/Power1:command:ON:ON ],>[ mosquitto:cmnd/julbelysning/Power1:command:OFF:OFF ],<[ mosquitto:stat/julbelysning/POWER:state:default ]" }
 
-Switch Baksida "Baksida [%s]" <switch> (grGF) [ "Lighting" ] { mqtt=">[ mosquitto:cmnd/baksida/Power1:command:ON:ON ],>[ mosquitto:cmnd/baksida/Power1:command:OFF:OFF ],<[ mosquitto:stat/baksida/POWER:state:default ]" }
+//Switch Baksida "Baksida [%s]" <switch> (grGF) [ "Lighting" ] { mqtt=">[ mosquitto:cmnd/baksida/Power1:command:ON:ON ],>[ mosquitto:cmnd/baksida/Power1:command:OFF:OFF ],<[ mosquitto:stat/baksida/POWER:state:default ]" }
 
-Switch Guestroom "Guestroom [%s]" <switch> (grFF) [ "Lighting" ] { mqtt=">[ mosquitto:cmnd/sonoff32/Power1:command:ON:ON ],>[ mosquitto:cmnd/sonoff32/Power1:command:OFF:OFF ],<[ mosquitto:stat/sonoff32/POWER:state:default ]" }
+//Switch Guestroom "Guestroom [%s]" <switch> (grFF) [ "Lighting" ] { mqtt=">[ mosquitto:cmnd/sonoff32/Power1:command:ON:ON ],>[ mosquitto:cmnd/sonoff32/Power1:command:OFF:OFF ],<[ mosquitto:stat/sonoff32/POWER:state:default ]" }
 
-Switch Sovrum "Sovrum [%s]" <switch> (grFF) [ "Lighting" ] { mqtt=">[ mosquitto:cmnd/sonoff33/Power1:command:ON:ON ],>[ mosquitto:cmnd/sonoff33/Power1:command:OFF:OFF ],<[ mosquitto:stat/sonoff33/POWER:state:default ]" }
+
+//Switch Sovrum "Sovrum [%s]" <switch> (grFF) [ "Lighting" ] { mqtt=">[ mosquitto:cmnd/sonoff33/Power1:command:ON:ON ],>[ mosquitto:cmnd/sonoff33/Power1:command:OFF:OFF ],<[ mosquitto:stat/sonoff33/POWER:state:default ]" }
+
+
+Switch Julbelysning "Julbelysning [%s]" <switch> (grFF) [ "Lighting" ] { channel="mqtt:topic:mosquitto:mything:framsida" }
+Switch Baksida "Baksida [%s]" <switch> (grFF) [ "Lighting" ] { channel="mqtt:topic:mosquitto:mything:baksida" }
+Switch Guestroom "Guestroom [%s]" <switch> (grFF) [ "Lighting" ] { channel="mqtt:topic:mosquitto:mything:sonoff32" }
+Switch Sovrum "Sovrum [%s]" <switch> (grFF) [ "Lighting" ] { channel="mqtt:topic:mosquitto:mything:sonoff33" }
 

@@ -1,0 +1,10 @@
+Bridge mqtt:broker:mosquitto [ host="127.0.0.1", port=1883, secure=false, qos=0, retain=false,  clientid="openhab" ]
+{
+    Thing topic mything {
+    Channels:
+        Type switch : framsida "framsida" [ stateTopic="stat/julbelysning/POWER", commandTopic="cmnd/julbelysning/Power1", on="ON", off="OFF"]
+        Type switch : baksida "baksida" [ stateTopic="stat/baksida/POWER", commandTopic="cmnd/baksida/Power1", on="ON", off="OFF" ]
+        Type switch : sonoff32 "sonoff32" [ stateTopic="stat/sonoff32/POWER", commandTopic="cmnd/sonoff32/Power1", on="ON", off="OFF" ]
+        Type switch : sonoff33 "sonoff33" [ stateTopic="stat/sonoff33/POWER", commandTopic="cmnd/sonoff33/Power1", on="ON", off="OFF" ]
+    }
+}

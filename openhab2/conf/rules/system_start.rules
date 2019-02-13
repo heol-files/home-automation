@@ -1,0 +1,7 @@
+rule "System start"
+when
+  System started
+then
+  ElementDummy.sendCommand(OFF)
+end
+

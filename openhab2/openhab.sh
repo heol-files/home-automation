@@ -37,5 +37,5 @@ docker run \
 	-e OPENHAB_HTTPS_PORT=9071 \
 	-e EXTRA_JAVA_OPTS="-Dgnu.io.rxtx.SerialPorts=/dev/ttyUSBZwave" \
 	--restart=always \
-	openhab/openhab:milestone-debian
+	openhab/openhab:latest-debian
 

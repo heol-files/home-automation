@@ -17,5 +17,5 @@ docker stop openhab
 docker rm openhab
 rm -rf ${BASE}/userdata/cache
 rm -rf ${BASE}/userdata/tmp
-docker pull openhab/openhab:milestone-debian
+docker pull openhab/openhab:latest-debian
 

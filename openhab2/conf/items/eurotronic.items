@@ -1,7 +1,7 @@
 //Dimmer ElementDim "Element [%d %%]" <radiator> (grGF) {channel="zwave:device:aeotec-1:node10:switch_dimmer"}
-//Number ElementTemp "Element temp [%s °C]" <temperature> (grFF) {channel="zwave:device:aeotec-1:node10:sensor_temperature"}
+Number ElementTemp "Element temp [%s °C]" <temperature> (grFF) {channel="zwave:device:aeotec-1:node10:sensor_temperature"}
 //Switch ElementMode "Element Mode [%d]" <flow> (grFF) {channel="zwave:device:aeotec-1:node10:thermostat_mode"}
-Switch ElementDummy "Element [%s]" <switch> (grFF) 
+Switch ElementDummy "Element [%s]" <switch> (grFF) [ "Switchable" ]
 Number ElementBatt "Element battery [%d %%]" <battery> (grFF, gbattery) {channel="zwave:device:aeotec-1:node10:battery-level"}
 
 
