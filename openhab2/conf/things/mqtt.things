@@ -1,10 +1,56 @@
-Bridge mqtt:broker:mosquitto [ host="127.0.0.1", port=1883, secure=false, qos=0, retain=false,  clientid="openhab" ]
+Bridge mqtt:broker:mosquitto "Mosquitto" [ host="127.0.0.1", port=1883, secure=false, clientid="openhab" ]
 {
-    Thing topic mything {
-    Channels:
-        Type switch : framsida "framsida" [ stateTopic="stat/julbelysning/POWER", commandTopic="cmnd/julbelysning/Power1", on="ON", off="OFF"]
-        Type switch : baksida "baksida" [ stateTopic="stat/baksida/POWER", commandTopic="cmnd/baksida/Power1", on="ON", off="OFF" ]
-        Type switch : sonoff32 "sonoff32" [ stateTopic="stat/sonoff32/POWER", commandTopic="cmnd/sonoff32/Power1", on="ON", off="OFF" ]
-        Type switch : sonoff33 "sonoff33" [ stateTopic="stat/sonoff33/POWER", commandTopic="cmnd/sonoff33/Power1", on="ON", off="OFF" ]
+    Thing topic sonoff30 "Framsida" {
+        Channels:
+            Type string   : reachable   "Reachable"        [ stateTopic="tele/sonoff30/LWT" ]
+            Type switch   : switch      "Switch"           [ stateTopic="stat/sonoff30/POWER",  commandTopic="cmnd/sonoff30/POWER" ]
+            Type number   : power       "Power"            [ stateTopic="tele/sonoff30/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Power"]
+            Type number   : voltage     "Voltage"          [ stateTopic="tele/sonoff30/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
+            Type number   : current     "Current"          [ stateTopic="tele/sonoff30/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Current"]
+            Type datetime : energyStart "Energy start"     [ stateTopic="tele/sonoff30/SENSOR", transformationPattern="JSONPATH:$.ENERGY.TotalStartTime"]
+            Type number   : energy      "Energy"           [ stateTopic="tele/sonoff30/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Total"]
+            Type number   : eToday      "Energy today"     [ stateTopic="tele/sonoff30/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Today"]
+            Type number   : eYesterday  "Energy yesterday" [ stateTopic="tele/sonoff30/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Yesterday"]
+            Type number   : rssi        "WiFi Signal"      [ stateTopic="tele/sonoff30/STATE",  transformationPattern="JSONPATH:$.Wifi.RSSI"]    }
+
+    Thing topic sonoff31 "Baksida" {
+        Channels:
+            Type string   : reachable   "Reachable"        [ stateTopic="tele/sonoff31/LWT" ]
+            Type switch   : switch      "Switch"           [ stateTopic="stat/sonoff31/POWER",  commandTopic="cmnd/sonoff31/POWER" ]
+            Type number   : power       "Power"            [ stateTopic="tele/sonoff31/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Power"]
+            Type number   : voltage     "Voltage"          [ stateTopic="tele/sonoff31/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
+            Type number   : current     "Current"          [ stateTopic="tele/sonoff31/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Current"]
+            Type datetime : energyStart "Energy start"     [ stateTopic="tele/sonoff31/SENSOR", transformationPattern="JSONPATH:$.ENERGY.TotalStartTime"]
+            Type number   : energy      "Energy"           [ stateTopic="tele/sonoff31/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Total"]
+            Type number   : eToday      "Energy today"     [ stateTopic="tele/sonoff31/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Today"]
+            Type number   : eYesterday  "Energy yesterday" [ stateTopic="tele/sonoff31/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Yesterday"]
+            Type number   : rssi        "WiFi Signal"      [ stateTopic="tele/sonoff31/STATE",  transformationPattern="JSONPATH:$.Wifi.RSSI"]
     }
+
+    Thing topic sonoff32 "Guestroom" {
+        Channels:
+            Type string   : reachable   "Reachable"        [ stateTopic="tele/sonoff32/LWT" ]
+            Type switch   : switch      "Switch"           [ stateTopic="stat/sonoff32/POWER",  commandTopic="cmnd/sonoff32/POWER" ]
+            Type number   : power       "Power"            [ stateTopic="tele/sonoff32/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Power"]
+            Type number   : voltage     "Voltage"          [ stateTopic="tele/sonoff32/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
+            Type number   : current     "Current"          [ stateTopic="tele/sonoff32/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Current"]
+            Type datetime : energyStart "Energy start"     [ stateTopic="tele/sonoff32/SENSOR", transformationPattern="JSONPATH:$.ENERGY.TotalStartTime"]
+            Type number   : energy      "Energy"           [ stateTopic="tele/sonoff32/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Total"]
+            Type number   : eToday      "Energy today"     [ stateTopic="tele/sonoff32/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Today"]
+            Type number   : eYesterday  "Energy yesterday" [ stateTopic="tele/sonoff32/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Yesterday"]
+            Type number   : rssi        "WiFi Signal"      [ stateTopic="tele/sonoff32/STATE",  transformationPattern="JSONPATH:$.Wifi.RSSI"]    }
+
+    Thing topic sonoff33 "Sovrum" {
+        Channels:
+            Type string   : reachable   "Reachable"        [ stateTopic="tele/sonoff33/LWT" ]
+            Type switch   : switch      "Switch"           [ stateTopic="stat/sonoff33/POWER",  commandTopic="cmnd/sonoff33/POWER" ]
+            Type number   : power       "Power"            [ stateTopic="tele/sonoff33/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Power"]
+            Type number   : voltage     "Voltage"          [ stateTopic="tele/sonoff33/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
+            Type number   : current     "Current"          [ stateTopic="tele/sonoff33/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Current"]
+            Type datetime : energyStart "Energy start"     [ stateTopic="tele/sonoff33/SENSOR", transformationPattern="JSONPATH:$.ENERGY.TotalStartTime"]
+            Type number   : energy      "Energy"           [ stateTopic="tele/sonoff33/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Total"]
+            Type number   : eToday      "Energy today"     [ stateTopic="tele/sonoff33/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Today"]
+            Type number   : eYesterday  "Energy yesterday" [ stateTopic="tele/sonoff33/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Yesterday"]
+            Type number   : rssi        "WiFi Signal"      [ stateTopic="tele/sonoff33/STATE",  transformationPattern="JSONPATH:$.Wifi.RSSI"]    }
 }
+

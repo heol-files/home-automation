@@ -1,0 +1,9 @@
+Group grGF ["Bottenplan"]
+Group grFF ["Övervåning"]
+Group grPower ["Power"]
+Group grEnergy ["Energy"]
+Group grKylTemp ["Kyl temperatur"]
+Group grFrysTemp ["Frys temperatur"]
+Group Livingroom ["Vardagsrum"]
+
+

@@ -2,7 +2,8 @@ var Timer ON_Timer = null
 
 rule "Element On"
 when
-  Time cron "0 20 9 ? * SAT,SUN *" or
+  Time cron "0 20 9 ? * SAT,SUN *" 
+  or
   Time cron "0 20 9 ? * MON-FRI *"
 then
   ElementDummy.sendCommand(ON)
@@ -29,7 +30,6 @@ then
     ON_Timer = createTimer(now.plusSeconds(4))
     [|
       Element_ThermostatMode.sendCommand(1)
-      ElementDummy.
       ON_Timer = null
     ]
   }

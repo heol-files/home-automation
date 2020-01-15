@@ -2,33 +2,35 @@ var Timer ON_Timer = null
 var Timer OFF_Timer = null
 val java.util.Random rand = new java.util.Random
 
-rule "Sovrum evening on"
+rule "sonoff33_Switch evening on"
 when
+  Channel 'astro:sun:lampa:set#event' triggered START
+  or
   Time cron "0 45 18 * * ?"
 then
   if(ON_Timer === null) {
     val timeout = rand.nextInt(30)
-    logInfo("Sovrum", "Evening on in " + timeout + " minutes")
+    logInfo("sonoff33_Switch", "Evening on in " + timeout + " minutes")
     ON_Timer = createTimer(now.plusMinutes(timeout))
     [|
-      logInfo("Sovrum", "Evening on")
-      Sovrum.sendCommand(ON)
+      logInfo("sonoff33_Switch", "Evening on")
+      sonoff33_Switch.sendCommand(ON)
       ON_Timer = null
     ]
   }
 end
 
-rule "Sovrum evening off"
+rule "sonoff33_Switch evening off"
 when
-  Time cron "0 00 21 * * ?"
+  Time cron "0 30 21 * * ?"
 then
   if(OFF_Timer === null) {
-    val timeout = rand.nextInt(60)
-    logInfo("Sovrum", "Evening off in " + timeout + " minutes")
+    val timeout = rand.nextInt(40)
+    logInfo("sonoff33_Switch", "Evening off in " + timeout + " minutes")
     OFF_Timer = createTimer(now.plusMinutes(timeout))
     [|
-      logInfo("Sovrum", "Evening off")
-      Sovrum.sendCommand(OFF)
+      logInfo("sonoff33_Switch", "Evening off")
+      sonoff33_Switch.sendCommand(OFF)
       OFF_Timer = null
     ]
   }

@@ -2,35 +2,99 @@ var Timer ON_Timer = null
 var Timer OFF_Timer = null
 val java.util.Random rand = new java.util.Random
 
-rule "Guestroom evening on"
+rule "shelly2_1_Switch1 morning on"
 when
-  Time cron "0 30 16 * * ?"
+  Time cron "0 35 8 * * ?"
+then
+  return
+  val long sunrise_end = (Sunrise_End.state as DateTimeType).getZonedDateTime.toInstant.toEpochMilli
+  if(now.isBefore(sunrise_end)) {
+    logInfo("shelly2_1_Switch1", "Morning on")
+    shelly2_1_Switch1.sendCommand(ON)
+  } else {
+    logInfo("shelly2_1_Switch1", "Sun already up!")
+  }
+end
+
+rule "shelly2_1_Switch1 morning off"
+when
+  Channel 'astro:sun:lampa:rise#event' triggered END
+then
+  logInfo("shelly2_1_Switch1", "Morning off")
+  shelly2_1_Switch1.sendCommand(OFF)
+end
+
+rule "shelly2_1_Switch1 evening on"
+when
+  Channel 'astro:sun:lampa:set#event' triggered START
+then
+  return
+  logInfo("shelly2_1_Switch1", "Evening on")
+  shelly2_1_Switch1.sendCommand(ON)
+end
+
+rule "shelly2_1_Switch1 evening off"
+when
+  Time cron "0 10 22 * * ?"
+then
+  logInfo("shelly2_1_Switch1", "Evening off")
+  shelly2_1_Switch1.sendCommand(OFF)
+end
+
+
+
+rule "shelly2_1_Switch2 morning on"
+when
+  Time cron "0 0 7 * * ?"
+then
+  return
+  val long sunrise_end = (Sunrise_End.state as DateTimeType).getZonedDateTime.toInstant.toEpochMilli
+  if(now.isBefore(sunrise_end)) {
+    logInfo("shelly2_1_Switch2", "Morning on")
+    shelly2_1_Switch2.sendCommand(ON)
+  } else {
+    logInfo("shelly2_1_Switch2", "Sun already up!")
+  }
+end
+
+rule "shelly2_1_Switch2 morning off"
+when
+  Channel 'astro:sun:lampa:rise#event' triggered END
+then
+  logInfo("shelly2_1_Switch2", "Morning off")
+  shelly2_1_Switch2.sendCommand(OFF)
+end
+
+rule "shelly2_1_Switch2 evening on"
+when
+  Channel 'astro:sun:lampa:set#event' triggered START
 then
   if(ON_Timer === null) {
-    val timeout = rand.nextInt(60)
-    logInfo("Guestroom", "Evening on in " + timeout + " minutes")
+    val timeout = 60 + rand.nextInt(60)
+    logInfo("shelly2_1_Switch2", "Evening on in " + timeout + " minutes")
     ON_Timer = createTimer(now.plusMinutes(timeout))
     [|
-      logInfo("Guestroom", "Evening on")
-      Guestroom.sendCommand(ON)
+      logInfo("shelly2_1_Switch2", "Evening on")
+      shelly2_1_Switch2.sendCommand(ON)
       ON_Timer = null
     ]
   }
 end
 
-rule "Guestroom evening off"
+rule "shelly2_1_Switch2 evening off"
 when
-  Time cron "0 00 20 * * ?"
+  Time cron "0 30 21 * * ?"
 then
-  logInfo("Guestroom", "Evening off")
+  logInfo("shelly2_1_Switch2", "Evening off")
   if(OFF_Timer === null) {
     val timeout = rand.nextInt(60)
-    logInfo("Guestroom", "Evening off in " + timeout + " minutes")
+    logInfo("shelly2_1_Switch2", "Evening off in " + timeout + " minutes")
     OFF_Timer = createTimer(now.plusMinutes(timeout))
     [|
-      logInfo("Guestroom", "Evening off")
-      Guestroom.sendCommand(OFF)
+      logInfo("shelly2_1_Switch2", "Evening off")
+      shelly2_1_Switch2.sendCommand(OFF)
       OFF_Timer = null
     ]
   }
 end
+

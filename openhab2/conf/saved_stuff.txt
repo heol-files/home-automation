@@ -1,0 +1,34 @@
+
+    Thing topic shelly2_1 "shelly2_1" {
+	Channels:
+	    Type string : online    "Online"     [ stateTopic="shellies/shellyswitch-32B33C/online" ]
+	    Type switch : switch1   "Switch1"    [ stateTopic="shellies/shellyswitch-32B33C/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch-32B33C/relay/0/command", on="on", off="off"]
+            Type switch : switch2   "Switch2"    [ stateTopic="shellies/shellyswitch-32B33C/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch-32B33C/relay/1/command", on="on", off="off"]
+            Type number : powerload "Power load" [ stateTopic="shellies/shellyswitch-32B33C/relay/power"]
+            Type number : energy    "Energy"     [ stateTopic="shellies/shellyswitch-32B33C/relay/energy", transformationPattern="JS:KWh.js"]
+     }
+
+    Thing topic shelly2_2 "shelly2_2" {
+        Channels:
+	    Type string : online    "Online"     [ stateTopic="shellies/shellyswitch-32AF9E/online"]
+	    Type switch : switch1   "Switch1"    [ stateTopic="shellies/shellyswitch-32AF9E/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch-32AF9E/relay/0/command", on="on", off="off"]
+           Type switch : switch2   "Switch2"    [ stateTopic="shellies/shellyswitch-32AF9E/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch-32AF9E/relay/1/command", on="on", off="off"]
+           Type number : powerload "Power load" [ stateTopic="shellies/shellyswitch-32AF9E/relay/power"]
+           Type number : energy    "Energy"     [ stateTopic="shellies/shellyswitch-32AF9E/relay/energy", transformationPattern="JS:KWh.js"]
+    }
+
+
+
+#Group    Gr_shelly2_1       "Guestroom"           <shelly2_1>    (Guestroom, grGF)
+#String   shelly2_1_Online   "Reachable: [%s]"     <contactable>  (Gr_shelly2_1) { channel="mqtt:topic:mosquitto:shelly2_1:online" }
+#Switch   shelly2_1_Switch1  "Switch1 []"          <shelly2_1>    (Gr_shelly2_1) [ "Lighting" ] { channel="mqtt:topic:mosquitto:shelly2_1:switch1" }
+#Switch   shelly2_1_Switch2  "Switch2 []"          <shelly2_1>    (Gr_shelly2_1) [ "Lighting" ] { channel="mqtt:topic:mosquitto:shelly2_1:switch2" }
+#Number   shelly2_1_Load     "Power load [%.1f W]" <power>        (Gr_shelly2_1, grPower) { channel="mqtt:topic:mosquitto:shelly2_1:powerload" }
+#Number   shelly2_1_Energy   "Energy [%.3f kWh]"      <energy>       (Gr_shelly2_1, grPower) { channel="mqtt:topic:mosquitto:shelly2_1:energy" }
+
+#Group    Gr_shelly2_2       "Akvarium"            <shelly2_2>    (Livingroom, grGF)
+#String   shelly2_2_Online   "Reachable: [%s]"     <contactable>  (Gr_shelly2_2) { channel="mqtt:topic:mosquitto:shelly2_2:online" }
+#Switch   shelly2_2_Switch1  "Switch1 []"          <shelly2_2>    (Gr_shelly2_2) [ "Lighting" ] { channel="mqtt:topic:mosquitto:shelly2_2:switch1" }
+#Switch   shelly2_2_Switch2  "Switch2 []"          <shelly2_2>    (Gr_shelly2_2) [ "Lighting" ] { channel="mqtt:topic:mosquitto:shelly2_2:switch2" }
+#Number   shelly2_2_Load     "Power load [%.1f W]" <power>        (Gr_shelly2_2, grPower) { channel="mqtt:topic:mosquitto:shelly2_2:powerload" }
+#Number   shelly2_2_Energy   "Energy [%.3f KWh]"      <energy>       (Gr_shelly2_2, grPower) { channel="mqtt:topic:mosquitto:shelly2_2:energy" }

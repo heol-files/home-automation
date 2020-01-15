@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker pull nodered/node-red-docker
+docker pull nodered/node-red
 

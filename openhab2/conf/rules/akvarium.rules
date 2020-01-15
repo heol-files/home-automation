@@ -1,16 +1,38 @@
 rule "Akvarium on"
 when
-  Time cron "0 0 9 * * ?"
+  Time cron "0 0 7 ? * SAT,SUN *" or
+  Time cron "0 0 7 ? * MON-FRI *"
 then
   logInfo("Akvarium", "Akvarium on")
-  Akvarium.sendCommand(ON)
+  shelly2_2_Switch1.sendCommand(ON)
+  shelly2_2_Switch2.sendCommand(ON)
 end
 
 rule "Akvarium off"
 when
-  Time cron "0 0 21 * * ?"
+  Time cron "0 0 9 * * ?"
 then
   logInfo("Akvarium", "Akvarium off")
-  Akvarium.sendCommand(OFF)
+  shelly2_2_Switch1.sendCommand(OFF)
+  shelly2_2_Switch2.sendCommand(OFF)
+end
+
+rule "Akvarium on"
+when
+  Time cron "0 0 15 ? * SAT,SUN *" or
+  Time cron "0 0 15 ? * MON-FRI *"
+then
+  logInfo("Akvarium", "Akvarium on")
+  shelly2_2_Switch1.sendCommand(ON)
+  shelly2_2_Switch2.sendCommand(ON)
+end
+
+rule "Akvarium off"
+when
+  Time cron "0 0 20 * * ?"
+then
+  logInfo("Akvarium", "Akvarium off")
+  shelly2_2_Switch1.sendCommand(OFF)
+  shelly2_2_Switch2.sendCommand(OFF)
 end
 

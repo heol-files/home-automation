@@ -1,22 +1,10 @@
-Group grGF ["Bottenplan"]
-Group grFF ["Övervåning"]
-Group grPower ["Power"]
-Group grKylTemp ["Kyl temperatur"]
-Group grFrysTemp ["Frys temperatur"]
 
-Switch Akvarium "Akvarium [%s]" <switch> (grGF) [ "Lighting" ] {channel="zwave:device:aeotec-1:node6:switch_binary"}
-Number AkvariumPower "Power [%.1f W]" <energy> (grGF, grPower) {channel="zwave:device:aeotec-1:node6:sensor_power"}
-Number AkvariumWatts "Watts [%.1f W]" <energy> (grGF, grPower) {channel="zwave:device:aeotec-1:node6:meter_watts"}
-Number AkvariumKWh "KWh [%.1f KWh]" <energy> (grGF, grPower) {channel="zwave:device:aeotec-1:node6:meter_kwh"}
-Switch AkvariumReset "Reset [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node6:meter_reset"}
-Switch AkvariumAlarm "Alarm [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node6:alarm_power"}
-
-Switch Lampa "Lampa [%s]" <switch> (grGF) [ "Lighting" ] {channel="zwave:device:aeotec-1:node3:switch_binary"}
-Number LampaPower "Power [%.1f W]" <energy> (grGF, grPower) {channel="zwave:device:aeotec-1:node3:sensor_power"}
-Number LampaWatts "Watts [%.1f W]" <energy> (grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_watts"}
-Number LampaKWh "KWh [%.1f KWh]" (grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_kwh"}
-Switch LampaReset "Reset [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node3:meter_reset"}
-Switch LampaAlarm "Alarm [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node3:alarm_power"}
+Switch Lampa      "Lampa [%s]"        <switch> (Livingroom, grGF) [ "Lighting" ] {channel="zwave:device:aeotec-1:node3:switch_binary"}
+Number LampaPower "Power [%.1f W]"    <power>  (Livingroom, grGF, grPower) {channel="zwave:device:aeotec-1:node3:sensor_power"}
+Number LampaWatts "Watts [%.1f W]"    <power>  (Livingroom, grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_watts"}
+Number LampaKWh   "Energy [%.1f KWh]" <energy> (Livingroom, grGF, grEnergy) {channel="zwave:device:aeotec-1:node3:meter_kwh"}
+Switch LampaReset "Reset [%s]"        <switch> (Livingroom, grGF) {channel="zwave:device:aeotec-1:node3:meter_reset"}
+Switch LampaAlarm "Alarm [%s]"        <switch> (Livingroom, grGF) {channel="zwave:device:aeotec-1:node3:alarm_power"}
 
 Switch Kyl "Kyl [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node4:sensor_binary1"}
 Switch Frys "Frys [%s]" <switch> (grGF) {channel="zwave:device:aeotec-1:node4:sensor_binary2"}

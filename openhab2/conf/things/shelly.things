@@ -1,0 +1,3 @@
+Thing shelly:shelly2-relay:32B33C "Shelly 2 Relay 32B33C" [deviceIp="192.168.2.213"]
+Thing shelly:shelly2-relay:32AF9E "Shelly 2 Relay 32AF9E" [deviceIp="192.168.2.212"]
+

@@ -1,0 +1,16 @@
+Group    grShelly2_1        "Guestroom"           <shelly2_1>  (Guestroom, grGF)
+Number   shelly2_1_Wifi     "Wifi: [%d]"          <wifi>       (grShelly2_1)                { channel="shelly:shelly2-relay:32B33C:device#wifiSignal" }
+String   shelly2_1_Alarm    "Alarm: [%s]"         <alarm>      (grShelly2_1)                { channel="shelly:shelly2-relay:32B33C:device#alarm" }
+Switch   shelly2_1_Switch1  "Switch1 []"          <shelly2_1>  (grShelly2_1) [ "Lighting" ] { channel="shelly:shelly2-relay:32B33C:relay1#output" }
+Switch   shelly2_1_Switch2  "Switch2 []"          <shelly2_1>  (grShelly2_1) [ "Lighting" ] { channel="shelly:shelly2-relay:32B33C:relay2#output" }
+Number   shelly2_1_Power    "Power [%.1f W]"      <energy>     (grShelly2_1, grPower)       { channel="shelly:shelly2-relay:32B33C:meter#currentWatts" }
+Number   shelly2_1_Energy   "Energy [%.3f kWh]"   <energy>     (grShelly2_1, grEnergy)      { channel="shelly:shelly2-relay:32B33C:meter#totalKWH" }
+
+Group    grShelly2_2        "Akvarium"            <shelly2_2>  (Livingroom, grGF)
+Number   shelly2_2_Wifi     "Wifi: [%d]"          <wifi>       (grShelly2_2)                { channel="shelly:shelly2-relay:32AF9E:device#wifiSignal" }
+String   shelly2_2_Alarm    "Alarm: [%s]"         <alarm>      (grShelly2_2)                { channel="shelly:shelly2-relay:32AF9E:device#alarm" }
+Switch   shelly2_2_Switch1  "Switch1 []"          <shelly2_2>  (grShelly2_2) [ "Lighting" ] { channel="shelly:shelly2-relay:32AF9E:relay1#output" }
+Switch   shelly2_2_Switch2  "Switch2 []"          <shelly2_2>  (grShelly2_2) [ "Lighting" ] { channel="shelly:shelly2-relay:32AF9E:relay2#output" }
+Number   shelly2_2_Power    "Power [%.1f W]"      <energy>     (grShelly2_2, grPower)       { channel="shelly:shelly2-relay:32AF9E:meter#currentWatts" }
+Number   shelly2_2_Energy   "Energy [%.3f kWh]"   <energy>     (grShelly2_2, grEnergy)      { channel="shelly:shelly2-relay:32AF9E:meter#totalKWH" }
+
