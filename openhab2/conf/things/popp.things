@@ -1,0 +1,1 @@
+Thing zwave:danfoss_010101_00_000:aeotec-1:node23 "Popp TRV:ZWave Node 23" (zwave:serial_zstick:aeotec-1) [ node_id=23]

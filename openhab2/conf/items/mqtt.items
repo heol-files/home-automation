@@ -4,47 +4,51 @@ Group    grSonoff30          "Boden"                        <sonoff_pow>        
 String   sonoff30_Reachable  "Reachable: [%s]"              <contactable>       (grSonoff30) { channel="mqtt:topic:mosquitto:sonoff30:reachable" }
 Switch   sonoff30_Switch     "Switch []"                    <sonoff_pow>        (grSonoff30) [ "Lighting" ] { channel="mqtt:topic:mosquitto:sonoff30:switch" }
 Number   sonoff30_Power      "Power [%.1f W]"               <power>             (grSonoff30, grPower) { channel="mqtt:topic:mosquitto:sonoff30:power" }
-Number   sonoff30_Voltage    "Voltage [%.1f V]"             <power>             (grSonoff30) { channel="mqtt:topic:mosquitto:sonoff30:voltage" }
-Number   sonoff30_Current    "Current [%.3f A]"             <power>             (grSonoff30) { channel="mqtt:topic:mosquitto:sonoff30:current" }
+Number   sonoff30_Voltage    "Voltage [%.1f V]"             <volt>             (grSonoff30) { channel="mqtt:topic:mosquitto:sonoff30:voltage" }
+Number   sonoff30_Current    "Current [%.3f A]"             <current>             (grSonoff30) { channel="mqtt:topic:mosquitto:sonoff30:current" }
 DateTime sonoff30_EnergyDate "Energy start date [%1$td.%1$tm.%1$tY]" <calendar> (grSonoff30) { channel="mqtt:topic:mosquitto:sonoff30:energyStart" }
-Number   sonoff30_Energy     "Energy [%.3f kWh]"            <power>             (grSonoff30, grEnergy) { channel="mqtt:topic:mosquitto:sonoff30:energy" }
-Number   sonoff30_EToday     "Energy today [%.3f kWh]"      <power>             (grSonoff30) { channel="mqtt:topic:mosquitto:sonoff30:eToday" }
-Number   sonoff30_EYesterday "Energy yesterday [%.3f kWh]"  <power>             (grSonoff30) { channel="mqtt:topic:mosquitto:sonoff30:eYesterday" }
+Number   sonoff30_Energy     "Energy [%.3f kWh]"            <energy>             (grSonoff30, grEnergy) { channel="mqtt:topic:mosquitto:sonoff30:energy" }
+Number   sonoff30_EToday     "Energy today [%.3f kWh]"      <energy>             (grSonoff30) { channel="mqtt:topic:mosquitto:sonoff30:eToday" }
+Number   sonoff30_EYesterday "Energy yesterday [%.3f kWh]"  <energy>             (grSonoff30) { channel="mqtt:topic:mosquitto:sonoff30:eYesterday" }
 Number   sonoff30_RSSI       "WiFi Signal Strength [%d %%]" <wifi>              (grSonoff30) { channel="mqtt:topic:mosquitto:sonoff30:rssi" }
 
 Group    grSonoff31          "Baksida"                      <sonoff_pow>        (Baksidan, grGF)
 String   sonoff31_Reachable  "Reachable: [%s]"              <contactable>       (grSonoff31) { channel="mqtt:topic:mosquitto:sonoff31:reachable" }
 Switch   sonoff31_Switch     "Switch []"                    <sonoff_pow>        (grSonoff31) [ "Lighting" ] { channel="mqtt:topic:mosquitto:sonoff31:switch" }
 Number   sonoff31_Power      "Power [%.1f W]"               <power>             (grSonoff31, grPower) { channel="mqtt:topic:mosquitto:sonoff31:power" }
-Number   sonoff31_Voltage    "Voltage [%.1f V]"             <power>             (grSonoff31) { channel="mqtt:topic:mosquitto:sonoff31:voltage" }
-Number   sonoff31_Current    "Current [%.3f A]"             <power>             (grSonoff31) { channel="mqtt:topic:mosquitto:sonoff31:current" }
+Number   sonoff31_Voltage    "Voltage [%.1f V]"             <volt>             (grSonoff31) { channel="mqtt:topic:mosquitto:sonoff31:voltage" }
+Number   sonoff31_Current    "Current [%.3f A]"             <current>             (grSonoff31) { channel="mqtt:topic:mosquitto:sonoff31:current" }
 DateTime sonoff31_EnergyDate "Energy start date [%1$td.%1$tm.%1$tY]" <calendar> (grSonoff31) { channel="mqtt:topic:mosquitto:sonoff31:energyStart" }
-Number   sonoff31_Energy     "Energy [%.3f kWh]"            <power>             (grSonoff31, grEnergy) { channel="mqtt:topic:mosquitto:sonoff31:energy" }
-Number   sonoff31_EToday     "Energy today [%.3f kWh]"      <power>             (grSonoff31) { channel="mqtt:topic:mosquitto:sonoff31:eToday" }
-Number   sonoff31_EYesterday "Energy yesterday [%.3f kWh]"  <power>             (grSonoff31) { channel="mqtt:topic:mosquitto:sonoff31:eYesterday" }
+Number   sonoff31_Energy     "Energy [%.3f kWh]"            <energy>             (grSonoff31, grEnergy) { channel="mqtt:topic:mosquitto:sonoff31:energy" }
+Number   sonoff31_EToday     "Energy today [%.3f kWh]"      <energy>             (grSonoff31) { channel="mqtt:topic:mosquitto:sonoff31:eToday" }
+Number   sonoff31_EYesterday "Energy yesterday [%.3f kWh]"  <energy>             (grSonoff31) { channel="mqtt:topic:mosquitto:sonoff31:eYesterday" }
 Number   sonoff31_RSSI       "WiFi Signal Strength [%d %%]" <wifi>              (grSonoff31) { channel="mqtt:topic:mosquitto:sonoff31:rssi" }
 
 Group    grSonoff32          "Framsida"                     <sonoff_pow>        (Framsidan, grGF)
 String   sonoff32_Reachable  "Reachable: [%s]"              <contactable>       (grSonoff32) { channel="mqtt:topic:mosquitto:sonoff32:reachable" }
 Switch   sonoff32_Switch     "Switch []"                    <sonoff_pow>        (grSonoff32) [ "Lighting" ] { channel="mqtt:topic:mosquitto:sonoff32:switch" }
 Number   sonoff32_Power      "Power [%.1f W]"               <power>             (grSonoff32, grPower) { channel="mqtt:topic:mosquitto:sonoff32:power" }
-Number   sonoff32_Voltage    "Voltage [%.1f V]"             <power>             (grSonoff32) { channel="mqtt:topic:mosquitto:sonoff32:voltage" }
-Number   sonoff32_Current    "Current [%.3f A]"             <power>             (grSonoff32) { channel="mqtt:topic:mosquitto:sonoff32:current" }
+Number   sonoff32_Voltage    "Voltage [%.1f V]"             <volt>             (grSonoff32) { channel="mqtt:topic:mosquitto:sonoff32:voltage" }
+Number   sonoff32_Current    "Current [%.3f A]"             <current>             (grSonoff32) { channel="mqtt:topic:mosquitto:sonoff32:current" }
 DateTime sonoff32_EnergyDate "Energy start date [%1$td.%1$tm.%1$tY]" <calendar> (grSonoff32) { channel="mqtt:topic:mosquitto:sonoff32:energyStart" }
-Number   sonoff32_Energy     "Energy [%.3f kWh]"            <power>             (grSonoff32, grEnergy) { channel="mqtt:topic:mosquitto:sonoff32:energy" }
-Number   sonoff32_EToday     "Energy today [%.3f kWh]"      <power>             (grSonoff32) { channel="mqtt:topic:mosquitto:sonoff32:eToday" }
-Number   sonoff32_EYesterday "Energy yesterday [%.3f kWh]"  <power>             (grSonoff32) { channel="mqtt:topic:mosquitto:sonoff32:eYesterday" }
+Number   sonoff32_Energy     "Energy [%.3f kWh]"            <energy>             (grSonoff32, grEnergy) { channel="mqtt:topic:mosquitto:sonoff32:energy" }
+Number   sonoff32_EToday     "Energy today [%.3f kWh]"      <energy>             (grSonoff32) { channel="mqtt:topic:mosquitto:sonoff32:eToday" }
+Number   sonoff32_EYesterday "Energy yesterday [%.3f kWh]"  <energy>             (grSonoff32) { channel="mqtt:topic:mosquitto:sonoff32:eYesterday" }
 Number   sonoff32_RSSI       "WiFi Signal Strength [%d %%]" <wifi>              (grSonoff32) { channel="mqtt:topic:mosquitto:sonoff32:rssi" }
 
 Group    grSonoff33          "Sovrum"                       <sonoff_pow>        (Sovrum, grFF)
 String   sonoff33_Reachable  "Reachable: [%s]"              <contactable>       (grSonoff33) { channel="mqtt:topic:mosquitto:sonoff33:reachable" }
 Switch   sonoff33_Switch     "Switch []"                    <sonoff_pow>        (grSonoff33) [ "Lighting" ] { channel="mqtt:topic:mosquitto:sonoff33:switch" }
 Number   sonoff33_Power      "Power [%.1f W]"               <power>             (grSonoff33, grPower) { channel="mqtt:topic:mosquitto:sonoff33:power" }
-Number   sonoff33_Voltage    "Voltage [%.1f V]"             <power>             (grSonoff33) { channel="mqtt:topic:mosquitto:sonoff33:voltage" }
-Number   sonoff33_Current    "Current [%.3f A]"             <power>             (grSonoff33) { channel="mqtt:topic:mosquitto:sonoff33:current" }
+Number   sonoff33_Voltage    "Voltage [%.1f V]"             <volt>             (grSonoff33) { channel="mqtt:topic:mosquitto:sonoff33:voltage" }
+Number   sonoff33_Current    "Current [%.3f A]"             <current>             (grSonoff33) { channel="mqtt:topic:mosquitto:sonoff33:current" }
 DateTime sonoff33_EnergyDate "Energy start date [%1$td.%1$tm.%1$tY]" <calendar> (grSonoff33) { channel="mqtt:topic:mosquitto:sonoff33:energyStart" }
-Number   sonoff33_Energy     "Energy [%.3f kWh]"            <power>             (grSonoff33, grEnergy) { channel="mqtt:topic:mosquitto:sonoff33:energy" }
-Number   sonoff33_EToday     "Energy today [%.3f kWh]"      <power>             (grSonoff33, grPower) { channel="mqtt:topic:mosquitto:sonoff33:eToday" }
-Number   sonoff33_EYesterday "Energy yesterday [%.3f kWh]"  <power>             (grSonoff33) { channel="mqtt:topic:mosquitto:sonoff33:eYesterday" }
+Number   sonoff33_Energy     "Energy [%.3f kWh]"            <energy>             (grSonoff33, grEnergy) { channel="mqtt:topic:mosquitto:sonoff33:energy" }
+Number   sonoff33_EToday     "Energy today [%.3f kWh]"      <energy>             (grSonoff33, grPower) { channel="mqtt:topic:mosquitto:sonoff33:eToday" }
+Number   sonoff33_EYesterday "Energy yesterday [%.3f kWh]"  <energy>             (grSonoff33) { channel="mqtt:topic:mosquitto:sonoff33:eYesterday" }
 Number   sonoff33_RSSI       "WiFi Signal Strength [%d %%]" <wifi>              (grSonoff33) { channel="mqtt:topic:mosquitto:sonoff33:rssi" }
 
+Group    grLed1          "Förråd"          <esp32>  (Storage, grFF)
+Switch   led1_switch     "Switch [%s]"     <esp32>  (grLed1) [ "Lighting" ] { channel="mqtt:topic:mosquitto:esp321:switch" }
+Dimmer   led1_dimmer     "Dimmer [%d %%]"  <dimmer> (grLed1) [ "Lighting" ] { channel="mqtt:topic:mosquitto:esp321:dimmer" }
+Color    led1_color      "Color [%s]"      <color>  (grLed1) [ "Lighting" ] { channel="mqtt:topic:mosquitto:esp321:color"}

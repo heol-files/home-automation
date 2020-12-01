@@ -16,36 +16,17 @@ then
   ElementDummy.sendCommand(OFF)
 end
 
-rule "ElementDummy On"
-when
-  Item ElementDummy changed from OFF to ON
-then
-  val mode = Element_ThermostatMode.state as Number
-  logInfo("Element", "On, mode = " + mode)
-  if(mode != 1) {
-    if(ON_Timer !== null) {
-      ON_Timer.cancel()
-    }
-    Element_ThermostatMode.sendCommand(15)
-    ON_Timer = createTimer(now.plusSeconds(4))
-    [|
-      Element_ThermostatMode.sendCommand(1)
-      ON_Timer = null
-    ]
-  }
-end
 
-rule "Element Off"
+rule "Element"
 when
   Item ElementDummy changed from ON to OFF
+  or
+  Item ElementDummy changed from OFF to ON
 then
-  val mode = Element_ThermostatMode.state as Number
-  logInfo("Element", "Off, mode = " + mode)
-  if(mode != 0) {
-    if(ON_Timer !== null) {
-      ON_Timer.cancel()
-    }
-    Element_ThermostatMode.sendCommand(0)
-  }
+  logInfo("ElementDummy", "To: " + ElementDummy.state)
+  switch ElementDummy.state {
+    case ON: sendCommand(ElementSetpoint, 28.0)
+    case OFF: sendCommand(ElementSetpoint,4.0)
+  }			
 end
 

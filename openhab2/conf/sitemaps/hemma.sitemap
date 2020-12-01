@@ -1,5 +1,25 @@
 sitemap hemma label="Hemma" {
 
+Frame label="LED" {
+Slider item=led1_dimmer icon="lightbulb"
+Switch item=led1_switch icon="lightbulb"
+Colorpicker item=led1_color icon="colorpicker"
+}
+
+
+Frame label="Power" {
+Text item=grPower
+Text item=grEnergy
+}
+
+
+Frame label="Stars" {
+Switch item=Stars icon="lightbulb"
+Text item=StarsPower
+Text item=StarsWatts
+Text item=StarsKWh
+}
+
 Frame label="Lampa" {
 Switch item=Lampa icon="lightbulb"
 Text item=LampaPower

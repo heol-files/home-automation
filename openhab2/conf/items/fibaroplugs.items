@@ -1,6 +1,12 @@
+Switch Stars      "Stars [%s]"        <switch> (Livingroom, grGF) [ "Lighting" ] {channel="zwave:device:aeotec-1:node24:switch_binary"}
+Number StarsPower "Power [%.1f W]"    <power>  (Livingroom, grGF) {channel="zwave:device:aeotec-1:node24:sensor_power"}
+Number StarsWatts "Watts [%.1f W]"    <power>  (Livingroom, grGF, grPower) {channel="zwave:device:aeotec-1:node24:meter_watts"}
+Number StarsKWh   "Energy [%.1f KWh]" <energy> (Livingroom, grGF, grEnergy) {channel="zwave:device:aeotec-1:node24:meter_kwh"}
+Switch StarsReset "Reset [%s]"        <switch> (Livingroom, grGF) {channel="zwave:device:aeotec-1:node24:meter_reset"}
+Switch StarsAlarm "Alarm [%s]"        <switch> (Livingroom, grGF) {channel="zwave:device:aeotec-1:node24:alarm_power"}
 
 Switch Lampa      "Lampa [%s]"        <switch> (Livingroom, grGF) [ "Lighting" ] {channel="zwave:device:aeotec-1:node3:switch_binary"}
-Number LampaPower "Power [%.1f W]"    <power>  (Livingroom, grGF, grPower) {channel="zwave:device:aeotec-1:node3:sensor_power"}
+Number LampaPower "Power [%.1f W]"    <power>  (Livingroom, grGF) {channel="zwave:device:aeotec-1:node3:sensor_power"}
 Number LampaWatts "Watts [%.1f W]"    <power>  (Livingroom, grGF, grPower) {channel="zwave:device:aeotec-1:node3:meter_watts"}
 Number LampaKWh   "Energy [%.1f KWh]" <energy> (Livingroom, grGF, grEnergy) {channel="zwave:device:aeotec-1:node3:meter_kwh"}
 Switch LampaReset "Reset [%s]"        <switch> (Livingroom, grGF) {channel="zwave:device:aeotec-1:node3:meter_reset"}

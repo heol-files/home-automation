@@ -1,6 +1,6 @@
 rule "sonoff31_Switch morning on"
 when
-  Time cron "0 0 7 * * ?"
+  Time cron "0 50 6 * * ?"
 then
   val long sunrise_end = (Sunrise_End.state as DateTimeType).getZonedDateTime.toInstant.toEpochMilli
   if(now.isBefore(sunrise_end)) {

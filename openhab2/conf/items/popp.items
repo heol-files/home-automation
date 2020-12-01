@@ -1,0 +1,6 @@
+Number ElementTemp     "Element temp [%d °C]"    <temperature> (grFF) {channel="zwave:danfoss_010101_00_000:aeotec-1:node23:sensor_temperature"}
+Number ElementSetpoint "Element temp [%d °C]"    <temperature> (grFF) {channel="zwave:danfoss_010101_00_000:aeotec-1:node23:thermostat_setpoint_heating"}
+Switch ElementDummy    "Element [%s]"            <switch>      (grFF) [ "Switchable" ]
+Number ElementBatt     "Element battery [%d %%]" <battery>     (grFF, gbattery) {channel="zwave:danfoss_010101_00_000:aeotec-1:node23:battery-level"}
+
+

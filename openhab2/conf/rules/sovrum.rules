@@ -1,3 +1,4 @@
+/*
 var Timer ON_Timer = null
 var Timer OFF_Timer = null
 val java.util.Random rand = new java.util.Random
@@ -35,3 +36,5 @@ then
     ]
   }
 end
+*/
+

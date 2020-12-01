@@ -52,5 +52,11 @@ Bridge mqtt:broker:mosquitto "Mosquitto" [ host="127.0.0.1", port=1883, secure=f
             Type number   : eToday      "Energy today"     [ stateTopic="tele/sonoff33/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Today"]
             Type number   : eYesterday  "Energy yesterday" [ stateTopic="tele/sonoff33/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Yesterday"]
             Type number   : rssi        "WiFi Signal"      [ stateTopic="tele/sonoff33/STATE",  transformationPattern="JSONPATH:$.Wifi.RSSI"]    }
+
+    Thing topic esp321 "Takfönster" {
+        Channels:
+            Type dimmer   : dimmer   "Dimmer [%d]"    [ stateTopic="stat/ESP32_1/DIM", commandTopic="cmnd/ESP32_1/DIM", min=8, max=255, step=1]
+            Type switch   : switch   "Switch [%s]"    [ stateTopic="stat/ESP32_1/POW", commandTopic="cmnd/ESP32_1/POW" ]
+            Type colorRGB : color    "Color RGB [%s]" [ stateTopic="stat/ESP32_1/RGB", commandTopic="cmnd/ESP32_1/RGB" ] }
 }
 

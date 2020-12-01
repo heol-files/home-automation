@@ -1,6 +1,6 @@
 rule "sonoff32_Switch morning on"
 when
-  Time cron "0 0 7 * * ?"
+  Time cron "0 20 6 * * ?"
 then
   val long sunrise_end = (Sunrise_End.state as DateTimeType).getZonedDateTime.toInstant.toEpochMilli
   if(now.isBefore(sunrise_end)) {
@@ -27,28 +27,14 @@ then
   sonoff32_Switch.sendCommand(ON)
 end
 
+/*
 rule "sonoff32_Switch evening off"
 when
-  Time cron "0 5 22 * * ?"
+  Time cron "0 05 23 * * ?"
 then
   logInfo("sonoff32_Switch", "Evening off")
   sonoff32_Switch.sendCommand(OFF)
 end
+*/
 
-
-rule "sonoff30_Switch morning off"
-when
-  Channel 'astro:sun:lampa:rise#event' triggered END
-then
-  logInfo("sonoff30_Switch", "Morning off")
-  sonoff30_Switch.sendCommand(OFF)
-end
-
-rule "sonoff30_Switch evening on"
-when
-  Channel 'astro:sun:lampa:set#event' triggered START
-then
-  logInfo("sonoff30_Switch", "Evening on")
-  sonoff30_Switch.sendCommand(ON)
-end
 
