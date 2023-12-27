@@ -1,8 +1,0 @@
-
-Switch Gran      "Gran [%s]"         <switch>  (grGF) [ "Lighting" ] {channel="zwave:device:aeotec-1:node9:switch_binary"}
-Number GranScene "Scene [%.1f]"                (grGF) {channel="zwave:device:aeotec-1:node9:scene_number"}
-Number GranWatts "Power [%.1f W]"    <power>   (grGF, grPower) {channel="zwave:device:aeotec-1:node9:meter_watts"}
-Number GranKWh   "Energy [%.1f KWh]" <energy>  (grGF, grEnergy) {channel="zwave:device:aeotec-1:node9:meter_kwh"}
-Number GranVolts "Volts [%.1f V]"    <volt>    (grGF) {channel="zwave:device:aeotec-1:node9:meter_voltage"}
-Number GranAmp   "Current [%.1f A]"  <current> (grGF) {channel="zwave:device:aeotec-1:node9:meter_current"}
-

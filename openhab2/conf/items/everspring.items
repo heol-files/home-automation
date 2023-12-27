@@ -1,6 +1,0 @@
-Dimmer Everspring1Dim "Everspring1Dim [%d %%]" <dimmer> (grGF) [ "Lighting" ] {channel="zwave:device:aeotec-1:node11:switch_dimmer"}
-Switch Everspring1    "Everspring1 [%s]"       <switch> (grFF) [ "Lighting" ] {channel="zwave:device:aeotec-1:node11:switch_dimmer"}
-Dimmer Everspring2Dim "Everspring2Dim [%d %%]" <dimmer> (grGF) [ "Lighting" ] {channel="zwave:device:aeotec-1:node12:switch_dimmer"}
-Switch Everspring2    "Everspring2 [%s]"       <switch> (grFF) [ "Lighting" ] {channel="zwave:device:aeotec-1:node12:switch_dimmer"}
-
-

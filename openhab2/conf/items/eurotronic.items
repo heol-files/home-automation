@@ -1,5 +1,0 @@
-//Number ElementTemp  "Element temp [%s °C]"    <temperature> (grFF) {channel="zwave:device:aeotec-1:node10:sensor_temperature"}
-//Switch ElementDummy "Element [%s]"            <switch>      (grFF) [ "Switchable" ]
-//Number ElementBatt  "Element battery [%d %%]" <battery>     (grFF, gbattery) {channel="zwave:device:aeotec-1:node10:battery-level"}
-
-

@@ -1,8 +1,0 @@
-astro:sun:lampa  [ geolocation="59.3276673, 18.2645983, 54", interval=60 ] {
-Channels:
-        Type rangeEvent : rise#event [ earliest="08:00" ]
-	Type rangeEvent : set#event [ latest="21:00" ]
-}
-
-astro:sun:home  [ geolocation="59.3276673, 18.2645983, 54", interval=60 ]
-

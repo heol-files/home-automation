@@ -1,8 +1,0 @@
-Group grGF ["Bottenplan"]
-Group grFF ["Övervåning"]
-Group:Number:SUM grPower  "Power [%.1f W]"     <power>  ["Power"]
-Group:Number:SUM grEnergy "Energy [%.1f kWh]"  <energy> ["Energy"]
-Group grKylTemp ["Kyl temperatur"]
-Group grFrysTemp ["Frys temperatur"]
-Group Livingroom ["Vardagsrum"]
-

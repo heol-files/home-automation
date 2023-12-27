@@ -12,11 +12,13 @@ get_script_dir () {
 }
 
 BASE=$(get_script_dir)
-cd ${BASE}
 
-docker stop grafana 
-docker rm grafana
-docker pull grafana/grafana
-docker build --tag grafana:my_build --build-arg MY_USER=$(id -u) --build-arg MY_GROUP=$(id -g) .
-
+docker run --name postgres_srv \
+	-dit \
+	-e POSTGRES_PASSWORD=mypsqlpw! \
+	-p 5432:5432 \
+	-v /data/databases/postgres_dir:/var/lib/postgresql/data \
+	--restart unless-stopped \
+	-u $(id -u):$(id -g) \
+	postgres:13
 

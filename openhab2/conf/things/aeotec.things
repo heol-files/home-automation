@@ -1,3 +1,0 @@
-// , security_networkkey="E7 B7 D1 48 95 2C 8F EB 95 45 13 D9 DB 37 10 02"
-Bridge zwave:serial_zstick:aeotec-1 "aeotec-1 controller" [port="/dev/ttyUSBZwave", controller_master="true", controller_softreset="false", heal_enable="true", inclusion_mode="1", security_networkkey="E7 B7 D1 48 95 2C 8F EB 95 45 13 D9 DB 37 10 02"]
-
